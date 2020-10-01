@@ -1,11 +1,11 @@
-// VEC3 class
+/* VEC3 class */
 /*
 	Things I had to google to become familiar with C++
 	https://stackoverflow.com/questions/3246803/why-use-ifndef-class-h-and-define-class-h-in-h-file-but-not-in-cpp
 	https://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean/2785639
 	https://stackoverflow.com/questions/16449889/why-using-the-const-keyword-before-and-after-method-or-function-name
 	https://en.cppreference.com/w/cpp/language/type_alias
-	https://www.geeksforgeeks.org/inline-functions-cpp/
+	https://isocpp.org/wiki/faq/inline-functions
 */ 
 
 #ifndef VEC3_H
@@ -71,6 +71,52 @@ class vec3 {
 /* type aliases */
 using point3 = vec3;
 using color3 = vec3;
+
+/* vec3 utility functions */
+
+inline std::ostream& operator<<(std::ostream &out, const vec3 &v) {
+	return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
+}
+
+inline vec3 operator+(const vec3 &u, const vec3 &v) {
+	return vec3(u.e[0] + v.e[0], u.e[1] + v.e[1], u.e[1] + v.e[1]);
+}
+
+inline vec3 operator-(const vec3 &u, const vec3 &v) {
+	return vec3(u.e[0] - v.e[0], u.e[1] - v.e[1], u.e[1] - v.e[1]);
+}
+
+inline vec3 operator*(const vec3 &u, const vec3 &v) {
+	return vec3(u.e[0] * v.e[0], u.e[1] * v.e[1], u.e[1] * v.e[1]);
+}
+
+inline vec3 operator*(const double t, const vec3 &v) {
+	return vec3(t*v.e[0], t*v.e[1], t*v.e[2]);
+}
+
+inline vec3 operator*(const vec3 &v, const double t) {
+	return t * v;
+}
+
+inline vec3 operator/(const vec3 v, const double t) {
+	return (1/t) * v;
+}
+
+// dot product
+inline double dot(const vec3 &u, const vec3 &v) {
+	return u.e[0] * u.e[0] + u.e[1] * u.e[1] + u.e[2] * u.e[2];
+}
+
+// cross product
+inline vec3 cross(const vec3 &u, const vec3 &v) {
+	return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
+                u.e[2] * v.e[0] - u.e[0] * v.e[2],
+                u.e[0] * v.e[1] - u.e[1] * v.e[0]);
+}
+
+inline vec3 unit_vector(vec3 v) {
+	return v/v.length();
+}
 
 #endif
 
