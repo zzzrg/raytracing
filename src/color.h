@@ -1,8 +1,4 @@
 /* Color class */
-/*
-	Things I had to google
-
-*/ 
 
 #ifndef COLOR_H
 #define COLOR_H

@@ -1,12 +1,4 @@
 /* VEC3 class */
-/*
-	Things I had to google to become familiar with C++
-	https://stackoverflow.com/questions/3246803/why-use-ifndef-class-h-and-define-class-h-in-h-file-but-not-in-cpp
-	https://stackoverflow.com/questions/2785612/c-what-does-the-colon-after-a-constructor-mean/2785639
-	https://stackoverflow.com/questions/16449889/why-using-the-const-keyword-before-and-after-method-or-function-name
-	https://en.cppreference.com/w/cpp/language/type_alias
-	https://isocpp.org/wiki/faq/inline-functions
-*/ 
 
 #ifndef VEC3_H
 #define VEC3_H
